@@ -39,5 +39,17 @@ Steps of the DHCP Handshake
 3. Client Request: The client broadcasts which configuration it has chosen.
 4. DHCP Acknowledgement: The chosen server confirms that its configuration has been given to the client.
 
+Wi-Fi: A layer 2 protocol that wirelessly connects machines in a LAN.
+1. Access Point: A machine that will help you connect to the network.
+2. SSID (Service set identifier): The name of the Wi-Fi network.
+3. Password: Optionally, a password to secure Wi-Fi communications.
+
+Wi-Fi Protected Access 2 (WPA2): A protocol for securing Wi-Fi network communications with cryptography. Design goals:
+1. Everyone with the Wi-Fi password can join the network.
+2. Messages sent over the network are encrypted with keys
+3. An attacker who does not know the Wi-Fi network cannot learn the keys.
+
+WPA Handshake
+
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
