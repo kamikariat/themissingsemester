@@ -57,6 +57,17 @@ WPA-Enterprise: Core issue is that every client has the same PSK to derive the P
 3. Form a secure channel to the authentication server, which lets you enter your username and password
 4. If the username and password are correct, the authentication server sends a one-time key to use instead of a PSK to both the client and the AP (also over a secure channel) 
 
+Routing packets:
+To send a packet to a computer within the local network:
+- Verify that the destination IP is in the same subnet
+- Use ARP (or contact a switch) to get the destination MAC address
+- Send the packet directly to the destination using the destination MAC address
+To send a packet to computer that is not within the local network:
+- Send the packet to the gateway
+- Past the gateway, the packet goes to the Internet
+- It’s the gateway’s job to deliver the packet closer to the destination
+
+
 
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
