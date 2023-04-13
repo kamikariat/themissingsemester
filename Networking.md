@@ -51,7 +51,12 @@ Wi-Fi Protected Access 2 (WPA2): A protocol for securing Wi-Fi network communica
 
 WPA Handshake
 
-WPA-Enterprise: Have each user use their own username and password.
+WPA-Enterprise: Core issue is that every client has the same PSK to derive the PTK. The fix is to have each user use their own username and password.
+1. Instead of using a PSK, use a randomly generated key by an authentication server
+2. For your client to trust the authentication server, you accept a digital certificate
+3. Form a secure channel to the authentication server, which lets you enter your username and password
+4. If the username and password are correct, the authentication server sends a one-time key to use instead of a PSK to both the client and the AP (also over a secure channel) 
+
 
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
