@@ -33,5 +33,11 @@ DHCP (Initial Network configuration) - to connect to a network, a user needs:
 3. The IP address of the router (gateway) so that the user can contact machines outside of the LAN.
 The first time a user connects, they don't have this information yet. The user also doesn't know who to ask for this information. DHCP gives the user a configuration when they first join the network.
 
+Steps of the DHCP Handshake
+1. Client Discovery: The client broadcasts a request for a configuration
+2. DHCP Offer: Any DHCP server can respond with a configuration offer.
+3. Client Request: The client broadcasts which configuration it has chosen.
+4. DHCP Acknowledgement: The chosen server confirms that its configuration has been given to the client.
+
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
