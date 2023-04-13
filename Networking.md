@@ -51,5 +51,7 @@ Wi-Fi Protected Access 2 (WPA2): A protocol for securing Wi-Fi network communica
 
 WPA Handshake
 
+WPA-Enterprise: Have each user use their own username and password.
+
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
