@@ -3,6 +3,11 @@
 
 ``ifconfig``
 
+``tcpdump``
+
+# Tools
+Wireshark: Graphical user interface for analyzing tcpdump packets
+
 # Concepts
 5 main layers (High to low)
 1. HTTP (Application)
