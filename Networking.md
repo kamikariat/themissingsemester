@@ -8,6 +8,8 @@
 # Tools
 Wireshark: Graphical user interface for analyzing tcpdump packets
 
+Network Switches: Connects users, applications, and equipment across a network so that they can communicate with one another and share resources. Provides additional security, isoluation, and defense against ARP spoofing. 
+
 # Concepts
 5 main layers (High to low)
 1. HTTP (Application)
