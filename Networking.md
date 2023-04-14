@@ -17,6 +17,13 @@ Network Switches: Connects users, applications, and equipment across a network s
 - ARP (Address Translation Protocol): Translate IP address to MAC addresses.
 - DHCP (Dynamic Host Configuration Protocol): Get configuration when first connecting to a network.
 - WPA (Wi-Fi Protected Access): Communicate securely in a wireless local network.
+- BGP (Border Gateway Protocol): Routing packets. The Internet is made of smaller autonomous systems (AS) Each AS broadcasts the shortest routes it knows of (dependent on the shortest routes of its neighbors and distance to neighbors).
+- TCP (Transport Layer Protocols): Reliably sending packets
+- UDP (User Datagram Protocol): Non-reliably sending packets
+
+
+
+
 
 
 # Concepts
@@ -67,7 +74,43 @@ To send a packet to computer that is not within the local network:
 - Past the gateway, the packet goes to the Internet
 - It’s the gateway’s job to deliver the packet closer to the destination
 
+Packet Reliability
+- Reliability ensures that packets are received correctly
+- If the packet has been changed (random error or malicious tampering), it should not be correctly -received
+- IP packets include a checksum (unkeyed function, protects against random errors)
+- However, there is no cryptographic MAC, so there are no guarantees if an attacker maliciously modifies packets (and modifies the checksum accordingly)
 
+IP is unreliable and only provides a best effort delivery service, which means:
+- Packets may be lost (“dropped”)
+- Packets may be corrupted
+- Packets may be delivered out of order
+- It is up to higher level protocols to ensure that the connection is reliable
+
+Designing TCP
+- Problem: IP packets have a limited size. To send longer messages, we have to manually break messages into packets.
+  - When sending packets: TCP will automatically split up messages
+  - When receiving packets: TCP will automatically reassemble the packets
+  - Now the user doesn’t need to manually split up messages!
+- Problem: Packets can arrive out of order
+  - When sending packets: TCP labels each byte of the message with increasing numbers
+  - When receiving packets: TCP can use the numbers to rearrange bytes in the correct order
+- Problem: Packets can be dropped
+  - When receiving packets: TCP sends an extra message acknowledging that a packet has been received
+  - When sending packets: If the acknowledgement doesn’t arrive, re-send the packet
+
+Transmission Control Protocol (TCP)
+- Provides a byte stream abstraction
+  - Bytes go in one end of the stream at the source and come out at the other end at the destination
+  - TCP automatically breaks streams into segments, which are sent as layer 3 packets
+- Provides ordering
+  - Segments contain sequence numbers, so the destination can reassemble the stream in order
+- Provides reliability
+  - The destination sends acknowledgements (ACKs) for each sequence number received
+  - If the source doesn’t receive the ACK, the source sends the packet again
+- Provides ports
+  - Multiple services can share the same IP address by using different ports
+
+[TCP Transmission Walkthrough](https://docs.google.com/presentation/d/1SiIjiecd2rPbBM8imqd6l5kv4iohzU_FbykrmXEKh20/edit#slide=id.gdb0b7df50a_0_382)
 
 # Readings
 [Network Security Portion of CS161](https://textbook.cs161.org/network/)
